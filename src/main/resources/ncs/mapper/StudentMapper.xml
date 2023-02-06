@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.example.ncs.mapper.StudentMapper">
+  	<select id="loginCheck" resultType = "int">
+  		SELECT COUNT(*) FROM member WHERE id = #{id} AND pw = #{pw}
+  	</select>
+  	
+  	<select id="studentCheck" resultType = "int">
+  		SELECT COUNT(*) FROM student WHERE no = #{no} AND name = #{name}
+  	</select>
+  	
+  	<select id="idCheck" resultType = "int">
+  		SELECT COUNT(*) FROM member WHERE id = #{id}
+  	</select>
+  	
+  	<insert id="regMember">
+		INSERT INTO member (no, id, pw, name, tel) VALUES (#{no}, #{id}, #{pw}, #{name}, #{tel});
+	</insert>
+  </mapper>
